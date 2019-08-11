@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { VapaeeScatterModule, VapaeeScatter } from '@vapaee/scatter';
+import { VapaeeDexModule, VapaeeDEX } from '@vapaee/dex';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,14 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    VapaeeScatterModule,
+    VapaeeDexModule,
   ],
-  providers: [],
+  providers: [
+    VapaeeScatter,
+    VapaeeDEX
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
