@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { VapaeeScatter, NetworkMap } from '@vapaee/scatter';
+import { VapaeeScatter, NetworkMap, SmartContract, TableResult } from '@vapaee/scatter';
 import { VapaeeDEX } from '@vapaee/dex';
 import { Feedback } from '@vapaee/feedback';
 
@@ -10,6 +10,8 @@ import { Feedback } from '@vapaee/feedback';
 })
 export class AppComponent {
     title = 'ng-telos-dex-template';
+    contract: SmartContract;
+    tokens: any;
 
     constructor(
         public scatter: VapaeeScatter,
@@ -68,6 +70,12 @@ export class AppComponent {
             console.log("Vapaee Scatter", this.scatter);
             console.log("OK !!");
         }, 3000);
+
+        this.contract = new SmartContract("vapaeetokens", this.scatter);
+        this.contract.getTable("tokens", {limit:200}).then((result: TableResult) => {
+            this.tokens = result.rows;
+            console.log(this.tokens);
+        });
 
     }
 }

@@ -1,1 +1,24 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h1>Telos DEX tokens</h1>
+            <h4>powered by <a target="_blank" href="https://www.npmjs.com/package/@vapaee/dex">@vapaee/dex</a> and <a target="_blank" href="https://www.npmjs.com/package/@vapaee/scatter">@vapaee/scatter</a> libs</h4>
+            <ul>
+                <li *ngFor="let token of tokens">
+                    <h3>
+                        <img [src]="'https://vapaee.io/' + token.logo" style="width:30px" [hidden]="token.logo.indexOf('/assets') != 0">
+                        <img [src]="token.logo" style="width:30px" [hidden]="token.logo.indexOf('/assets') == 0">
+                        {{token.title}}
+                    </h3>
+                    <ul>
+                        <li>contract: {{token.contract}}</li>
+                        <li>symbol: {{token.symbol}}</li>
+                        <li>precision: {{token.precision}}</li>
+                        <li>website: <a [href]="token.website">{{token.website}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 <router-outlet></router-outlet>
