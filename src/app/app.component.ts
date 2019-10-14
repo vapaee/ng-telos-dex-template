@@ -36,6 +36,23 @@ export class AppComponent {
                     "host":"telos.caleos.io",
                     "port":443
                 }]
+            },
+            "telos-testnet": {
+                "name": "TELOS TestNet",
+                "symbol": "TLOS",
+                "explorer": "https://monitor.telosfoundation.io",
+                "chainId":"335e60379729c982a6f04adeaad166234f7bf5bf1191252b8941783559aec33e",
+                "endpoints":[
+                {
+                    "protocol":"https",
+                    "host":"testnet.telos.caleos.io",
+                    "port":443
+                },
+                {
+                    "protocol":"http2",
+                    "host":"api.telosmadrid.io",
+                    "port":443
+                }]
             }
         };
         this.scatter.setEndpoints(endpoints);
